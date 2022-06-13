@@ -1,3 +1,34 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@laral91 
+actions
+/
+starter-workflows
+Public
+Code
+Issues
+9
+Pull requests
+13
+Actions
+Projects
+Security
+Insights
+starter-workflows/ci/docker-publish.yml
+@Phantsure
+Phantsure Merge branch 'main' into support-uppercase-repos
+Latest commit c81b7bc on 2 May
+ History
+ 17 contributors
+@pfleidi@mattmoor@kaylangan@bishal-pdMSFT@crazy-max@Licsber@Phantsure@dlorenc@konradpabjan@joshmgross@jglick@ericsciple
+ 93 lines (79 sloc)  3.22 KB
+
+
 name: Docker
 
 # This workflow uses actions that are not certified by GitHub.
@@ -7,13 +38,13 @@ name: Docker
 
 on:
   schedule:
-    - cron: '17 14 * * *'
+    - cron: $cron-daily
   push:
-    branches: [ "main" ]
+    branches: [ $default-branch ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ $default-branch ]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -91,3 +122,15 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: cosign sign ${{ steps.meta.outputs.tags }}@${{ steps.build-and-push.outputs.digest }}
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
