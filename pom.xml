@@ -43,11 +43,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.github.jsr-330</groupId>
-			<artifactId>config-json</artifactId>
-			<version>1.2.0</version>
-		</dependency>
 	</dependencies>
 
 	<build>
